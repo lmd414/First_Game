@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartMenu : MonoBehaviour
+public class GameOver : MonoBehaviour
 {
     public void StartGame()
     {
@@ -12,6 +12,6 @@ public class StartMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        Application.Quit();
+        SceneManager.LoadScene("Start");
     }
 }
