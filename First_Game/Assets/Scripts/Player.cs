@@ -8,6 +8,9 @@ public class Player : MonoBehaviour
     public float MaxHealth = 100f;
     private float currentHealth;
 
+    public float StartTimeBtwDmg;
+    public float TimeBtwDmg;
+
     public HealthBar bar;
 
     // Start is called before the first frame update
@@ -20,10 +23,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(20);
-        }
+        TimeBtwDmg -= Time.deltaTime;
         CheckHP();
         RegenHP();
     }
@@ -47,6 +47,18 @@ public class Player : MonoBehaviour
         {
             currentHealth += 0.5f * Time.deltaTime;
             bar.SetCurrentHealth(currentHealth);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Enemy"))
+        {
+            if(TimeBtwDmg <= 0)
+            {
+                TakeDamage(10);
+                TimeBtwDmg = StartTimeBtwDmg;
+            }
         }
     }
 }
