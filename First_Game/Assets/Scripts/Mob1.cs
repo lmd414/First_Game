@@ -26,6 +26,10 @@ public class Mob1 : MonoBehaviour
         {
             transform.Translate(speed * Time.deltaTime * 30, 0, 0);
         }
+        else if (collision.collider.CompareTag("Bullet"))
+        {
+            TakeDamage(10);
+        }
         //else if hit bullet
         //take dmg
     }

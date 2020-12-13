@@ -17,7 +17,7 @@ public class Mob : MonoBehaviour
     void Update()
     {
         transform.Translate(-speed * Time.deltaTime, 0, 0);
-        //CheckHealth();
+        CheckHealth();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -25,6 +25,10 @@ public class Mob : MonoBehaviour
         if(collision.collider.CompareTag("Playerr"))
         {
             transform.Translate(speed * Time.deltaTime * 55, 0, 0);
+        }
+        else if (collision.collider.CompareTag("Bullet"))
+        {
+            TakeDamage(25);
         }
         //else if hit bullet
         //take dmg

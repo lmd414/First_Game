@@ -11,6 +11,14 @@ public class Player : MonoBehaviour
     public float StartTimeBtwDmg;
     public float TimeBtwDmg;
 
+    public float StartTimeBtwAttk;
+    public float TimeBtwAttk;
+
+    public float bulletForce = 20f; //how fast bullet will go
+
+    public Transform shootingPos; //gets location of shooting position (where bullet will come from)
+    public GameObject bullet; //gets sprite of bullet
+
     public HealthBar bar;
 
     // Start is called before the first frame update
@@ -23,7 +31,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        TimeBtwAttk -= Time.deltaTime;
         TimeBtwDmg -= Time.deltaTime;
+        Shoot();
         CheckHP();
         RegenHP();
     }
@@ -47,6 +57,19 @@ public class Player : MonoBehaviour
         {
             currentHealth += 0.5f * Time.deltaTime;
             bar.SetCurrentHealth(currentHealth);
+        }
+    }
+    void Shoot()
+    {
+        if(TimeBtwAttk <= 0)
+        {
+            if(Input.GetButtonDown("Fire1")) //instantiate bullet with force
+            {
+                GameObject bullet1 = Instantiate(bullet, shootingPos.position, shootingPos.rotation);
+                Rigidbody2D rb = bullet1.GetComponent<Rigidbody2D>();
+                rb.AddForce(shootingPos.right * bulletForce, ForceMode2D.Impulse);
+                TimeBtwAttk = StartTimeBtwAttk; //reset shooting cd
+            }
         }
     }
 

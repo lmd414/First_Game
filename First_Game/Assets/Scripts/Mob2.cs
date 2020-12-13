@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Mob2 : MonoBehaviour
 {
-    public int maxHealth = 25;
+    public int maxHealth = 20;
     private int currentHealth;
 
     public float speed = 2f;
@@ -25,6 +25,10 @@ public class Mob2 : MonoBehaviour
         if (collision.collider.CompareTag("Playerr"))
         {
             transform.Translate(speed * Time.deltaTime * 35, 0, 0);
+        }
+        else if(collision.collider.CompareTag("Bullet"))
+        {
+            TakeDamage(10);
         }
         //else if hit bullet
         //take dmg
