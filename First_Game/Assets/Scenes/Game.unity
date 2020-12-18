@@ -2146,7 +2146,8 @@ MonoBehaviour:
     spawnInterval: 1
   - name: Boss Wave
     numberEnemy: 1
-    enemies: []
+    enemies:
+    - {fileID: 3979528950486177211, guid: 98ba520cdeca4e942850d249a96712c7, type: 3}
     spawnInterval: 0
   spawnpoints:
   - {fileID: 2144605748}

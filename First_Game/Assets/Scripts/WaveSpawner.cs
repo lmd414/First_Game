@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 [System.Serializable]
 
 public class Wave
@@ -35,6 +36,11 @@ public class WaveSpawner : MonoBehaviour
             canSpawn = true;
         }
         waveName.text = waves[currentwavenumber].name;
+
+        if (totalEnemies.Length == 0 && !canSpawn && currentwavenumber + 1 == waves.Length)
+        {
+            SceneManager.LoadScene("Victory");
+        }
     }
 
     void SpawnWave()
