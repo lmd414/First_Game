@@ -97,6 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   speed: 2
+  setDazedTime: 0.25
 --- !u!61 &2475796022988497505
 BoxCollider2D:
   m_ObjectHideFlags: 0

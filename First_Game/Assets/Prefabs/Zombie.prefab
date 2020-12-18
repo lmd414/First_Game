@@ -123,3 +123,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 75
   speed: 2.5
+  setDazedTime: 0.25

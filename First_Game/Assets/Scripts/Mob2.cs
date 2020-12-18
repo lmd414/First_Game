@@ -9,6 +9,10 @@ public class Mob2 : MonoBehaviour
 
     public float speed = 2f;
 
+    public float setDazedTime = 0.5f;
+    private float DazedTime;
+    private bool Dazed = false;
+
     private void Start()
     {
         currentHealth = maxHealth;
@@ -18,6 +22,7 @@ public class Mob2 : MonoBehaviour
     {
         transform.Translate(-speed * Time.deltaTime, 0, 0);
         CheckHealth();
+        CheckDazed();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -29,6 +34,7 @@ public class Mob2 : MonoBehaviour
         else if(collision.collider.CompareTag("Bullet"))
         {
             TakeDamage(10);
+            BeDazed();
         }
         //else if hit bullet
         //take dmg
@@ -44,6 +50,23 @@ public class Mob2 : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
+        }
+    }
+    void BeDazed()
+    {
+        speed = 0f;
+        DazedTime = setDazedTime;
+        Dazed = true;
+    }
+    void CheckDazed()
+    {
+        if (DazedTime <= 0)
+        {
+            speed = 2f;
+        }
+        else
+        {
+            DazedTime -= Time.deltaTime;
         }
     }
 }
