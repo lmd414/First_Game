@@ -155,7 +155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 240}
+  m_AnchoredPosition: {x: 0, y: 231}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2290692
@@ -913,7 +913,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -375, y: 240}
+  m_AnchoredPosition: {x: -351, y: 231}
   m_SizeDelta: {x: 250, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &558453144
@@ -1212,7 +1212,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1085, y: 900}
+  m_SizeDelta: {x: 1600, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &925319254
 MonoBehaviour:
@@ -2144,11 +2144,13 @@ MonoBehaviour:
     - {fileID: 2475796022988497510, guid: ff545b4ae5f2bcb40a192eda22558dd6, type: 3}
     - {fileID: 3979528950486177211, guid: 98ba520cdeca4e942850d249a96712c7, type: 3}
     spawnInterval: 1
-  - name: Boss Wave
-    numberEnemy: 1
+  - name: Final Wave
+    numberEnemy: 24
     enemies:
+    - {fileID: 2620749795440530335, guid: eb097aaa4ff984142b992d07436c4af1, type: 3}
+    - {fileID: 2475796022988497510, guid: ff545b4ae5f2bcb40a192eda22558dd6, type: 3}
     - {fileID: 3979528950486177211, guid: 98ba520cdeca4e942850d249a96712c7, type: 3}
-    spawnInterval: 0
+    spawnInterval: 1
   spawnpoints:
   - {fileID: 2144605748}
   - {fileID: 1872805302}
